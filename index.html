@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Malla Interactiva</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f2f2f2;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+    }
+    .cell {
+      background-color: white;
+      border: 1px solid #ccc;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .cell:hover {
+      background-color: #d1e7ff;
+    }
+    .active {
+      background-color: #007bff;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>Malla Interactiva</h1>
+  <div class="grid" id="malla">
+    <!-- Las celdas aparecerán aquí -->
+  </div>
+
+  <script>
+    const materias = [
+      "Anatomía", "Fisiología", "Bioquímica", "Salud Pública", "Semiología", "Farmacología",
+      "Patología", "Internado", "Cirugía", "Pediatría", "Psiquiatría", "Gineco-Obstetricia"
+    ];
+
+    const grid = document.getElementById("malla");
+
+    materias.forEach((materia, i) => {
+      const cell = document.createElement("div");
+      cell.className = "cell";
+      cell.textContent = materia;
+      cell.onclick = () => {
+        cell.classList.toggle("active");
+      };
+      grid.appendChild(cell);
+    });
+  </script>
+</body>
+</html>
